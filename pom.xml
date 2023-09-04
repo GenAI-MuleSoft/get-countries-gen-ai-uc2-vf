@@ -105,7 +105,7 @@
 		<dependency>
 			<groupId>4af9c84b-ab45-49f9-9cc2-9764f985bec1</groupId>
 			<artifactId>rest-countries-gen-ai-vf</artifactId>
-			<version>1.0.2</version>
+			<version>1.0.4</version>
 			<classifier>raml</classifier>
 			<type>zip</type>
 		</dependency>
