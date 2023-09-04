@@ -1,0 +1,34 @@
+I'm a senior Mulesoft developer and I developed an application in Anypoint studio. I already deployed it to Runtime manager and application working fine. Currently application have no auth policies. I have configured basic auth policy on application and added autodiscovery. Now I need to configure rate limiting Policy
+ChatGPT
+Setting up a Rate Limiting policy in MuleSoft’s Anypoint Platform for an application deployed in Runtime Manager is a straightforward process. Here's a step-by-step guide:
+
+API Manager Configuration:
+Before you proceed, make sure you've correctly configured Autodiscovery in your application. Autodiscovery binds your deployed Mule application with an API instance in API Manager.
+
+Login to Anypoint Platform:
+Go to Anypoint Platform → Management Center → API Manager.
+
+Locate your API:
+Find the API that is associated with the application you deployed in Runtime Manager. If you have Autodiscovery configured, the API should be "Active" (the status is represented with a green dot).
+
+Apply Rate Limiting Policy:
+Click on the API version, then go to the "Policies" tab. Click on the "Apply new policy" button. From the available policies, select "Rate Limiting" (or "Rate Limiting - SLA-based" if you're associating this with SLAs).
+
+Configure the Policy:
+You'll be presented with configuration options:
+
+Rate Limit: Define the number of requests allowed within a specified time window.
+Time Period: Specify the window for the rate limit (e.g., per minute, per hour, etc.).
+Quota: If you choose "Rate Limiting - SLA-based", you'll have an additional field to define the default limit for requests.
+Response Code: The HTTP response code that will be returned when the rate limit is exceeded (default is 429 Too Many Requests).
+Headers: If you wish to include headers that provide more information about the rate limits, such as how many requests are left or when the quota will be reset, enable this option.
+Apply the Policy:
+Once you've filled out the necessary information, click the "Apply" button. The rate-limiting policy will be applied to your API.
+
+Testing:
+After applying the rate-limiting policy, it's crucial to test its functionality. Make requests to your API and check if the rate limiting behaves as expected. If you exceed the defined limit, you should receive the configured error response.
+
+Monitoring and Alerts:
+You may also want to set up monitoring and alerts for your API in the Runtime Manager to get notifications or view the metrics when certain thresholds are breached. This can be beneficial in a production scenario to keep tabs on the usage patterns and potentially adjust your rate limits or address sudden traffic spikes.
+
+By following these steps, you'll have effectively set up rate limiting on your MuleSoft application. Ensure you monitor its effectiveness and adjust as needed based on real-world usage patterns.
